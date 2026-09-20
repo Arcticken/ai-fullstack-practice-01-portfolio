@@ -6,7 +6,8 @@
   <title>我的个人作品集</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+  <body>
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题模式" title="主题模式">🔄</button>
   <!-- 导航 -->
   <header class="navbar">
     <div class="container nav-inner">
@@ -70,10 +71,11 @@
     <div class="container">
       <h2 class="section-title">项目</h2>
       <div class="filters" id="filters">
-        <button class="filter-btn active" data-filter="all">全部</button>
-        <button class="filter-btn" data-filter="web">Web 应用</button>
-        <button class="filter-btn" data-filter="tool">工具</button>
-        <button class="filter-btn" data-filter="mini">小程序</button>
+        <button class="filter-btn active" data-filter="all">全部 <span class="count"></span></button>
+        <button class="filter-btn" data-filter="web">Web 应用 <span class="count"></span></button>
+        <button class="filter-btn" data-filter="tool">工具 <span class="count"></span></button>
+        <button class="filter-btn" data-filter="mini">小程序 <span class="count"></span></button>
+        <button class="filter-btn" data-filter="game">小游戏 <span class="count"></span></button>
       </div>
       <div class="projects-grid" id="projectsGrid">
         <!-- JS 渲染项目卡片 -->
