@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的个人作品集</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 导航 -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo">My<span>Portfolio</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero">首页</a></li>
+          <li><a href="#about">简介</a></li>
+          <li><a href="#skills">技能</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#contact">联系</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 个人简介 -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1>你好，我是 <span class="accent">张三</span></h1>
+      <p class="hero-sub">一名热爱前端开发的全栈工程师</p>
+      <a href="#projects" class="btn">查看我的项目</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">关于我</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>我是一名拥有 3 年经验的前端开发者，专注于构建高质量、可维护的 Web 应用。熟悉现代前端框架和工程化工具，同时对后端开发与数据库设计也有实践经验。</p>
+          <p>我相信优秀的代码不仅是功能的实现，更是清晰的架构与良好的用户体验的结合。业余时间我喜欢参与开源项目和技术写作。</p>
+        </div>
+        <ul class="about-facts">
+          <li><strong>3+</strong> 年开发经验</li>
+          <li><strong>20+</strong> 完成项目</li>
+          <li><strong>10+</strong> 技术栈</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技能 -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">技能</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>HTML / CSS</h3><p>语义化布局、响应式设计、CSS 动画</p></div>
+        <div class="skill-card"><h3>JavaScript</h3><p>ES6+、异步编程、DOM 交互</p></div>
+        <div class="skill-card"><h3>React / Vue</h3><p>组件化开发、状态管理、路由</p></div>
+        <div class="skill-card"><h3>Node.js</h3><p>Express / Koa、RESTful API 设计</p></div>
+        <div class="skill-card"><h3>数据库</h3><p>MySQL、MongoDB、Redis</p></div>
+        <div class="skill-card"><h3>工具链</h3><p>Git、Vite、Webpack、Docker</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目区 -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">项目</h2>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="web">Web 应用</button>
+        <button class="filter-btn" data-filter="tool">工具</button>
+        <button class="filter-btn" data-filter="mini">小程序</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- JS 渲染项目卡片 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系表单 -->
+  <section id="contact" class="section section-alt">
+    <div class="container contact-wrap">
+      <h2 class="section-title">联系我</h2>
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" placeholder="你的名字" />
+          <small class="error-msg" id="nameError"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">邮箱</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+          <small class="error-msg" id="emailError"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">留言</label>
+          <textarea id="message" name="message" rows="5" placeholder="想说的话..."></textarea>
+          <small class="error-msg" id="messageError"></small>
+        </div>
+        <button type="submit" class="btn">发送消息</button>
+        <p class="form-success" id="formSuccess" hidden>✓ 消息已发送，我会尽快回复！</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 张三 · 用 ❤ 和代码构建</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
