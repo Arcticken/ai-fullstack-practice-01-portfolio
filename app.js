@@ -72,6 +72,30 @@ const projects = [
     tags: ["JavaScript", "CSS 动画"],
     link: "#",
   },
+  {
+    id: 10,
+    title: "扫雷",
+    description: "经典扫雷游戏，支持初级/中级/高级三种难度与计时排名。",
+    category: "game",
+    tags: ["JavaScript", "CSS Grid"],
+    link: "#",
+  },
+  {
+    id: 11,
+    title: "俄罗斯方块",
+    description: "经典俄罗斯方块，支持方块预览、暂停与本地最高分。",
+    category: "game",
+    tags: ["Canvas", "Web Audio"],
+    link: "#",
+  },
+  {
+    id: 12,
+    title: "打地鼠",
+    description: "锻炼反应力的打地鼠游戏，支持限时挑战与连击加分。",
+    category: "game",
+    tags: ["JavaScript", "CSS 动画"],
+    link: "#",
+  },
 ];
 
 // ===== 渲染项目卡片 =====
