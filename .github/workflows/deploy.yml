@@ -1,0 +1,46 @@
+name: Deploy Portfolio to Server
+
+# 触发条件：当 main 分支有 push 时执行
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 步骤1：把仓库的代码拉取到云端的临时机器上
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 步骤2：通过 SCP 把文件传送到服务器的仓库目录
+      - name: Copy files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # 只传这三个必要文件
+          source: "index.html,app.js,style.css"
+          # 传送到服务器上的仓库目录（中转站）
+          target: "/home/ubuntu/ai-fullstack-practice-01-portfolio"
+
+      # 步骤3：通过 SSH 登录服务器，把文件搬进 Nginx 目录并修权限
+      - name: Execute deployment on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # 把最新的文件复制到最终运行的 Nginx 目录
+            sudo cp /home/ubuntu/ai-fullstack-practice-01-portfolio/index.html /var/www/portfolio/
+            sudo cp /home/ubuntu/ai-fullstack-practice-01-portfolio/app.js /var/www/portfolio/
+            sudo cp /home/ubuntu/ai-fullstack-practice-01-portfolio/style.css /var/www/portfolio/
+
+            # 修正所有者（让 Nginx 用户有权限读取）
+            sudo chown -R www-data:www-data /var/www/portfolio/
+            sudo chmod -R 755 /var/www/portfolio/
+
+            echo "✅ 部署成功，网站已更新！"
